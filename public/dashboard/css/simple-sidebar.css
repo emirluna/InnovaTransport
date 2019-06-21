@@ -1,0 +1,75 @@
+
+body {
+  overflow-x: hidden;
+}
+
+
+.list-group-item{
+  background-color: transparent;
+  color: white;
+}
+
+.list-group-item:hover{
+  color: black;
+  background-color: #f5c6cb;
+}
+
+
+
+#sidebar-wrapper {
+  background-color: darkred;
+  min-height: 100vh;
+  margin-left: -18rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+
+}
+
+.list-group{
+  background-color: darkred;
+}
+
+
+#sidebar-wrapper .sidebar-heading {
+  background-color: darkred;
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 17 rem;
+  background-color: darkred;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+    background-color: #8a0404;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -18rem;
+
+  }
+}
+
+
+
+#formReg input, select{
+    margin-bottom: 15px;
+}

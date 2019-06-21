@@ -1,0 +1,101 @@
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+
+#principal{
+  background-color: #cc0000;
+  padding-left: 0px;
+}
+
+
+#name, #password, #email, #last_name, #phone, #username,
+#password-confirm, #enterprise_name{
+  background-color: #cc0000;
+  border-width: 2px;
+  color: white;
+  font-weight: bold;
+  height: 50px;
+  border-color: white;
+  text-decoration: white;
+  margin-bottom: 30px;
+  border-radius: 12px;
+}
+
+#username::placeholder, #password::placeholder, #email::placeholder,
+#last_name::placeholder, #phone::placeholder, #name::placeholder,
+#password-confirm::placeholder, #enterprise_name::placeholder { color: white; font-weight: bold; }
+
+
+#textBlack{
+  color: black;
+}
+
+#textWhite{
+  color: white;
+}
+
+#div1{
+  padding-left: 250px;
+}
+
+#div2{
+  display: none;
+}
+
+#div3{
+  padding: 30px 50px 40px 80px;
+  background-color: #cc0000;
+}
+
+.zoom:hover {
+  transform: scale(1.3);
+}
+
+
+@media screen and (max-width: 995px) {
+
+  #div1{
+    padding-left: 20px;
+    padding-right: 40px;
+  }
+
+  #img1{
+width: 400px;
+  }
+
+  #div3{
+    padding: 10px 0px 10px 10px;
+  }
+  nav{
+    position: fixed;
+    top:  150px;
+  }
+}
+
+
+@media screen and (max-width: 760px){
+  #div1{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 650px){
+  #div1{
+    display: none;
+  }
+}
+
+
+#registrar{
+  border-radius: 10px 10px 10px 10px;
+  height: 45px;
+}
