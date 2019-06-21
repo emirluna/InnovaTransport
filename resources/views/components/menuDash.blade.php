@@ -17,15 +17,18 @@
                     <img src="{{ asset('img/IconosBlancos/UsersB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Usuarios
                 </a>
                 <div class="collapse" id="collapseUsers">
-                   
+                    <a href='/office/index' class="list-group-item list-group-item-action ">  Usuarios de Oficina</a>   
+                    <a href='/driver/index' class="list-group-item list-group-item-action ">  Choferes</a>   
                 </div>
+
+
 
 
                 <a data-toggle="collapse" href="#collapseCustomers" role="button" aria-expanded="false" aria-controls="collapse" class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/TeamB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Clientes
                 </a>
                 <div class="collapse" id="collapseCustomers">
-
+                    <a href='/customer/index' class="list-group-item list-group-item-action ">  Usuarios de Oficina</a>   
                 </div>
 
                 <a href="#" class="list-group-item list-group-item-action ">

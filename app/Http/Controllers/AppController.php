@@ -40,6 +40,7 @@ class AppController extends Controller
 
         if ($b != null) {
             $response["success"] = true;
+            $response["token"] = $token;
             $response["nombre"] = $b->name;
             $response["email"] = $b->email;
             $response["rol"] = $b->role;

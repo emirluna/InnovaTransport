@@ -24,7 +24,14 @@ Route::get('features', function (){
     return view('prices');
  });
  
-Route::resource('enterprise', 'EnterpriseController');
+Route::resource('/enterprise', 'EnterpriseController');
+
+Route::resource('/driver', 'DriversController');
+
+Route::resource('/office', 'OfficeController');
+
+Route::resource('/customer', 'CustomerController');
+
 
 Auth::routes();
 

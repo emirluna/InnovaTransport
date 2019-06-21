@@ -5,6 +5,7 @@ use App\Enterprise;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -75,11 +76,23 @@ class RegisterController extends Controller
 
         return User::create([
             'name' => $data['name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'phone' => $data['phone'],
+            //'password' => bcryptHasher::make($data['password'],10),
             'status' => 1,
             'photo' => 'img/porfile/',
             'role' => 'admin',
+            'address' => array([
+                'street'=> "",
+                'number'=> 0,
+                'town'=>"",
+                'city'=> "",
+                'state'=> "",
+                'country'=> "",
+                'zip_code'=> 0
+            ]),
             'enterprise_id' => $enter->_id,
         ]);
     }

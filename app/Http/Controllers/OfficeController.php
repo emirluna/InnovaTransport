@@ -1,15 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Enterprise;
+use App\User;
 use Illuminate\Http\Request;
-class EnterpriseController extends Controller
-{
 
+class OfficeController extends Controller
+{
     public function index(){
-        return view('/home');
+        return view('/office/index');
      }
     
+
+     public function show(){
+         
+        $chofer = User::all();
+        
+        return view('/office/index')->with('chofer' ,$chofer);
+     }
+    
+
+     public function create(){
+        return view('/office/create');
+     }
+
 
     public function store(Request $request){
        
@@ -30,12 +43,6 @@ class EnterpriseController extends Controller
                 'street' =>  $request->get('street'),
                 'number' =>  $request->get('number'),
                 'zipcode' =>  $request->get('zipcode')
-            );
-            $enter-> vehicles = array(
-                'vehicle' => array(
-                    'vin' => '',
-                    'brand' => ''
-                )
             );
             $enter-> suscription = array(
                 'type_suscription' => 0,
@@ -77,6 +84,4 @@ class EnterpriseController extends Controller
         return view('/home');
     }
     
-
-
 }
