@@ -18,7 +18,7 @@
                 </a>
                 <div class="collapse" id="collapseUsers">
                     <a href='/office/index' class="list-group-item list-group-item-action ">  Usuarios de Oficina</a>   
-                    <a href='/driver/index' class="list-group-item list-group-item-action ">  Choferes</a>   
+                    <a href='{{url('choferes',array('id'=>Auth::user()->enterprise_id))}}' class="list-group-item list-group-item-action ">  Choferes</a>   
                 </div>
 
 
@@ -28,14 +28,14 @@
                     <img src="{{ asset('img/IconosBlancos/TeamB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Clientes
                 </a>
                 <div class="collapse" id="collapseCustomers">
-                    <a href='/customer/index' class="list-group-item list-group-item-action ">  Usuarios de Oficina</a>   
+                    <a href='{{url('clientes',array('id'=>Auth::user()->enterprise_id))}}' class="list-group-item list-group-item-action ">  Ver Clinetes</a>   
                 </div>
 
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/vehicle' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/CamionB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Transportes
                 </a>
 
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='{{url('vehiculos',array('id'=>Auth::user()->enterprise_id))}}' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/DateB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Salidas
                 </a>
                 <a href="#" class="list-group-item list-group-item-action ">

@@ -99,7 +99,7 @@
             
             <input type="hidden" name="rol" value="Customer">
 
-            <input type="hidden" name="enterprise_id" value="{{ Auth::user()->Enterprise_id}}">
+            <input type="hidden" name="enterprise_id" value="{{ Auth::user()->enterprise_id}}">
 
             <input type="hidden" name="status" value="1">
 

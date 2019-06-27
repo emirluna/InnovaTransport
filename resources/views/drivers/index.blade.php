@@ -33,9 +33,8 @@
 <h1 style="margin-top: 50px; margin-bottom: 100px;">Choferes</h1>
 
 <div class="row text-left">
-<a href='/driver/create' style="color: #fff;"><button class="btn text-left btn-danger">Nuevo usuario</button></a>
+<a href='/driver/create' style="color: #fff;"><button class="btn text-left btn-danger">Registrar Chofer</button></a>
 </div>
-
 <table class="table" style="margin-top: 50px;" >
 
     <tr style="border-top: none;">
@@ -43,21 +42,21 @@
         <th>Apellido</th>
         <th>Correo</th>
         <th>Teléfono</th>
-        <th>Tipo</th>
+        <th>Información Adicional</th>
         <th>Dirección</th>
         <th>Opciones</th>
     </tr>
 
-         
+@if($count >= 1)         
     @foreach($chofer as $c)
-        @if($c->enterprise_id == Auth::user()->enterprise_id)
+        
         <tr>
             <td>{{$c->name}}</td>
             <td>{{$c->last_name}}</td>
             <td>{{$c->email}}</td>
             <td>{{$c->phone}}</td>
-            <td>{{$c->role}}</td>
-            <td><a class="nav-link" data-toggle="modal" data-target="#ModalTow" id="$c->address" href="">Dirección</a></td>
+            <td><a class="nav-link" data-toggle="modal" data-target="#ModalThree" data-book-id="$c->email" href="">Info</a></td>
+            <td><a class="nav-link" data-toggle="modal" data-target="#ModalTow" data-book-id="$c->address" href="">Dirección</a></td>
             
             
            
@@ -66,23 +65,17 @@
                 <a href="#"><img src="{{ asset('img/delete.png')}}" height="20px" width="20px"></a>
             </td>
         </tr>
-        @endif
 
     @endforeach
-</table>
+@endif
+        </table>
 
-</div>
-</div>
-
-
-
+        </div>
+    </div>
 
 
-
-
-
-<div id="ModalTow" class="modal" role="dialog" >
-    <div class="modal-dialog modal-lg modal-sm">
+    <div id="ModalTow" class="modal" role="dialog" >
+        <div class="modal-dialog modal-lg modal-sm">
 
         <!-- Modal content-->
         <div class="modal-content">
@@ -94,18 +87,19 @@
           
             <table class="table" style="margin-top: 50px;" >
 
-<tr style="border-top: none;">
-    <th>Calle</th>
-    <th>Numero</th>
-    <th>Municipio</th>
-    <th>Ciudad</th>
-    <th>Pais</th>
-    <th>Codigo Postal</th>
-    <th>Opciones</th>
-</tr>
-
-@foreach($c->address as $a)
-    @if($c->enterprise_id == Auth::user()->enterprise_id)
+    <tr style="border-top: none;">
+        <th>Calle</th>
+        <th>Numero</th>
+        <th>Municipio</th>
+        <th>Ciudad</th>
+        <th>Pais</th>
+        <th>Codigo Postal</th>
+        <th>Opciones</th>
+    </tr>
+@if($count >= 1)
+    @foreach($chofer as $d)
+        @foreach($d->address as $a)
+    
     <tr>
         <td>{{($a['street'])}}</td>
         <td>{{($a['number'])}}</td>
@@ -120,8 +114,103 @@
         </td>
     </tr>
     
-    @endif
-@endforeach
+        @endforeach
+    @endforeach
+    </table>
+@endif
+
+
+
+                <div class="text-center">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="ModalThree" class="modal" role="dialog" >
+    <div class="modal-dialog modal-lg modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Información Básica</h4>
+                
+            </div>
+            <div class="modal-body">
+          
+            <table class="table" style="margin-top: none;" >
+
+<tr style="border-top: none;">
+    <th>Turno</th>
+    <th>Numero de Licencia</th>
+    <th>Tipo de licencia</th>
+    <th>Fecha de vencimiento</th>
+    <th>Opciones</th>
+</tr>
+
+@if($count >= 1)
+    @foreach($chofer as $i)
+        @foreach($i->driver_info as $a)
+   
+    <tr>
+        <td>{{($a['turn'])}}</td>
+        <td>{{($a['license_number'])}}</td>
+        <td>{{($a['license_type'])}}</td>
+        <td>{{($a['expiration_date'])}}</td>
+        <td>
+            <a href="#"><img src="{{ asset('img/edit.png')}}" height="20px" width="20px"></a>
+        </td><td >
+            <a href="#"><img src="{{ asset('img/delete.png')}}" height="20px" width="20px"></a>
+        </td>
+    </tr>
+    
+        @endforeach
+    @endforeach
+@endif
+
+<tr style="border-top: none;">
+<th colspan="5"><br><h4>Información Bancaria</h4></th>
+</tr>
+<tr style="border-top: none;">
+    <th>Banco</th>
+    <th>Numero de Cuenta</th>
+    <th>Clabe Interbancaria</th>
+    <th>Moneda</th>
+    <th>Opciones</th>
+</tr>
+
+@if($count >= 1)
+    @foreach($c->bank_info as $b)
+    
+    <tr>
+        <td>{{($b['bank'])}}</td>
+        <td>{{($b['number_account'])}}</td>
+        <td>{{($b['clabe'])}}</td>
+        <td>{{($b['currency'])}}</td>
+        <td>
+            <a href="#"><img src="{{ asset('img/edit.png')}}" height="20px" width="20px"></a>
+        </td><td >
+            <a href="#"><img src="{{ asset('img/delete.png')}}" height="20px" width="20px"></a>
+        </td>
+    </tr>
+ 
+    @endforeach
+   
+@endif
+
 </table>
 
 
@@ -135,6 +224,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 
@@ -158,6 +249,8 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+    
 </script>
 
 </body>

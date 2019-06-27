@@ -48,9 +48,8 @@
         <th>Opciones</th>
     </tr>
 
-         
+@if($count >= 1)        
     @foreach($chofer as $c)
-        @if($c->enterprise_id == Auth::user()->enterprise_id)
         <tr>
             <td>{{$c->name}}</td>
             <td>{{$c->last_name}}</td>
@@ -59,16 +58,20 @@
             <td>{{$c->role}}</td>
             <td><a class="nav-link" data-toggle="modal" data-target="#ModalTow" id="$c->address" href="">Dirección</a></td>
             
-            
-           
             <td>
-                <a href="#"><img src="{{ asset('img/edit.png')}}" height="20px" width="20px"></a>
+                <a href=""><img src="{{ asset('img/edit.png')}}" height="20px" width="20px"></a>
                 <a href="#"><img src="{{ asset('img/delete.png')}}" height="20px" width="20px"></a>
-            </td>
+            </td>       
+
+            {{ Form::open(array('url' => 'customer/' . $c->_id, 'class' => 'pull-right')) }}
+            {{ Form::hidden('_method', 'DELETE') }}
+            <td>{{ Form::submit('Eliminar', array('class' => 'btn btn-warning')) }}</td>
+            {{ Form::close() }}
+            </tr>
         </tr>
-        @endif
 
     @endforeach
+@endif
 </table>
 
 </div>
@@ -103,9 +106,8 @@
     <th>Codigo Postal</th>
     <th>Opciones</th>
 </tr>
-
-@foreach($c->address as $a)
-    @if($c->enterprise_id == Auth::user()->enterprise_id)
+@if($count >= 1)
+    @foreach($c->address as $a)
     <tr>
         <td>{{($a['street'])}}</td>
         <td>{{($a['number'])}}</td>
@@ -114,14 +116,16 @@
         <td>{{($a['country'])}}</td>
         <td>{{($a['zip_code'])}}</td>
         <td>
-            <a href="#"><img src="{{ asset('img/edit.png')}}" height="20px" width="20px"></a>
+
+
+            <a href=""><img src="{{ asset('img/edit.png')}}" height="20px" width="20px"></a>
         </td><td >
             <a href="#"><img src="{{ asset('img/delete.png')}}" height="20px" width="20px"></a>
         </td>
     </tr>
     
-    @endif
-@endforeach
+    @endforeach
+@endif
 </table>
 
 

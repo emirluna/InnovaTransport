@@ -50,7 +50,7 @@
 
          
     @foreach($chofer as $c)
-        @if($c->enterprise_id == Auth::user()->enterprise_id)
+        @if($c->enterprise_id == Auth::user()->enterprise_id && $c->role == "Office")
         <tr>
             <td>{{$c->name}}</td>
             <td>{{$c->last_name}}</td>
@@ -105,7 +105,7 @@
 </tr>
 
 @foreach($c->address as $a)
-    @if($c->enterprise_id == Auth::user()->enterprise_id)
+  
     <tr>
         <td>{{($a['street'])}}</td>
         <td>{{($a['number'])}}</td>
@@ -120,7 +120,6 @@
         </td>
     </tr>
     
-    @endif
 @endforeach
 </table>
 

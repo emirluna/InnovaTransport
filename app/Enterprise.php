@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Vehicle;
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
@@ -12,7 +12,7 @@ class Enterprise extends Eloquent
 
   
     protected $fillable = [
-        'company_name', 'social_reason','rfc', 'address', 'phone', 'email', 'status', 'suscription', 'purcharses',
+        'company_name', 'social_reason','rfc', 'address', 'phone', 'email', 'status', 'suscription', 'purcharses', 'vehicles',
 
     ];
 
@@ -21,5 +21,8 @@ class Enterprise extends Eloquent
         return $this->hasMany('App\User', '_id');
     }
 
+    public function vehicles(){
+        return $this->embedsMany('App\Vehicle');
+    }
 
 }

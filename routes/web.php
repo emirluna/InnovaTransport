@@ -32,6 +32,13 @@ Route::resource('/office', 'OfficeController');
 
 Route::resource('/customer', 'CustomerController');
 
+Route::resource('/vehicle', 'VehicleController');
+
+Route::get('/choferes/{id}', 'DriversController@getDriver');
+
+Route::get('/clientes/{id}', 'CustomerController@getCustomer');
+
+Route::get('/vehiculos/{id}', 'VehicleController@newVehicle');
 
 Auth::routes();
 

@@ -42,13 +42,13 @@
     <div class="container text-center">
 
         <h2 style="margin-top: 50px;   ">Registro de usuario de oficina</h2>
-        <form id="formReg" class="form-inline" method="POST" action="">
+        <form id="formReg" class="form-inline" method="POST" action="{{ route('office.store') }}">
             {{ csrf_field() }}
             <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
                     <label for="name" class="col-sm-12 col-form-label">Nombre</label>
                     <div class="col-sm-12">
-                        <input id="name" type="text" class="form-control" name="Name" value="{{ old('name') }}" required autofocus>
+                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 <div class="form-group">
                     <label for="last_name" class="col-sm-12 col-form-label">Apellido</label>
                     <div class="col-sm-12">
-                        <input id="last_name" type="text" class="form-control" name="LastName" value="{{ old('last_name') }}" required autofocus>
+                        <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required autofocus>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <div class="form-group">
                     <label for="phone" class="col-sm-12 col-form-label">Teléfono</label>
                     <div class="col-sm-12">
-                        <input id="phone" type="number" class="form-control" name="Phone" value="{{ old('phone') }}" required autofocus>
+                        <input id="phone" type="number" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
                     </div>
                 </div>
             </div>
@@ -87,14 +87,6 @@
 
 
 
-            <div class="col-sm-12 col-lg-6">
-                <div class="form-group">
-                    <label for="username" class="col-sm-12 col-form-label">Nombre de Usuario</label>
-                    <div class="col-sm-12">
-                        <input id="username" type="text" class="form-control" name="username" required>
-                    </div>
-                </div>
-            </div>
 
             <div class="col-sm-12 col-lg-6">
                 <div class="form-group">
@@ -106,13 +98,13 @@
             </div>
 
             
-            <input type="hidden" name="Rol" value="Customer">
+            <input type="hidden" name="rol" value="Office">
 
-            <input type="hidden" name="Enterprise_id" value="{{ Auth::user()->Enterprise_id}}">
+            <input type="hidden" name="enterprise_id" value="{{ Auth::user()->enterprise_id}}">
 
-            <input type="hidden" name="Status" value="1">
+            <input type="hidden" name="status" value="1">
 
-            <input type="hidden" name="Country" value="México">
+            <input type="hidden" name="country" value="México">
 
             <div class="col-sm-12"><br>
                 <div class="form-group">

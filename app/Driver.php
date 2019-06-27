@@ -23,7 +23,7 @@ class Driver extends Eloquent implements JWTSubject, AuthenticatableContract
 
 
     protected $fillable = [
-        'name', 'last_name', 'phone', 'email', 'password', 'status', 'photo', 'address', 'role', 'driver', 'enterprise_id',
+        'name', 'last_name', 'phone', 'email', 'password', 'status', 'photo', 'address', 'role', 'driver_info', 'bank_info', 'resource', 'enterprise_id',
     ];
 
     protected $hidden = [
