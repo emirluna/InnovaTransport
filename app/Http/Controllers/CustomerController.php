@@ -67,15 +67,6 @@ class CustomerController extends Controller
             'status' => 1,
             'photo' => 'img/porfile/',
             'role' =>  $request['rol'],
-            'address' => array([
-                'street'=> "",
-                'number'=> 0,
-                'town'=>"",
-                'city'=> "",
-                'state'=> "",
-                'country'=> "",
-                'zip_code'=> 0
-            ]),
             'enterprise_id' =>  $request['enterprise_id'],
         ]);  
 

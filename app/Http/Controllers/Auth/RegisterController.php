@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 use App\Enterprise;
 use App\User;
+use App\Address;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
@@ -74,7 +75,7 @@ class RegisterController extends Controller
 
         
 
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
@@ -84,16 +85,19 @@ class RegisterController extends Controller
             'status' => 1,
             'photo' => 'img/porfile/',
             'role' => 'admin',
-            'address' => array([
-                'street'=> "",
-                'number'=> 0,
-                'town'=>"",
-                'city'=> "",
-                'state'=> "",
-                'country'=> "",
-                'zip_code'=> 0
-            ]),
             'enterprise_id' => $enter->_id,
-        ]);
+            ]);   
+            
+        $user->address()->create([
+                'street'=> "25",
+                'number'=> 0,
+                'town'=>"Atoyatenco",
+                'city'=> "Nativitas",
+                'state'=> "Tlaxacala",
+                'country'=> "México",
+                'zip_code'=> 90718
+            ]);
+            
+        return $user;
     }
 }

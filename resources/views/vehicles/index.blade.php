@@ -33,18 +33,19 @@
 <h1 style="margin-top: 50px; margin-bottom: 100px;">Vehiculos</h1>
 
 <div class="row text-left">
-<a href='/office/create' style="color: #fff;"><button class="btn text-left btn-danger">Nuevo usuario</button></a>
+<a href='/vehicle/create' style="color: #fff;"><button class="btn text-left btn-danger">Nuevo vehiculo</button></a>
 </div>
 
 <table class="table" style="margin-top: 50px;" >
 
     <tr style="border-top: none;">
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Correo</th>
-        <th>Teléfono</th>
+        <th>Vin</th>
+        <th>Modelo</th>
+        <th>Marca</th>
+        <th>Color</th>
         <th>Tipo</th>
-        <th>Dirección</th>
+        <th>Status</th>
+        <th>GPS</th>
         <th>Opciones</th>
     </tr>
     <tr>

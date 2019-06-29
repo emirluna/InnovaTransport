@@ -4,7 +4,7 @@ namespace App;
 use App\Vehicle;
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
-
+use App\Address;
 class Enterprise extends Eloquent
 {
     protected $connection = 'mongodb';
@@ -21,8 +21,11 @@ class Enterprise extends Eloquent
         return $this->hasMany('App\User', '_id');
     }
 
-    public function vehicles(){
-        return $this->embedsMany('App\Vehicle');
+    public function address(){
+        return $this -> embedsMany('App\Address');
     }
+    /*public function vehicles(){
+        return $this->embedsMany('App\Vehicle');
+    }*/
 
 }

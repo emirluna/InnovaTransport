@@ -11,6 +11,10 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use App\Address;
+use App\Driver_Info;
+use App\Bank_Info;
+
 
 class Driver extends Eloquent implements JWTSubject, AuthenticatableContract
 {
@@ -33,6 +37,22 @@ class Driver extends Eloquent implements JWTSubject, AuthenticatableContract
     public function enterprise(){
         return $this->belongsTo('App\Enterprise',  'enterprise_id', '_id');
     }
+
+
+    
+    public function address(){
+        return $this -> embedsMany('App\Address');
+    }
+
+    public function banks(){
+        return $this -> embedsMany('App\Bank_Info');
+    }
+
+    public function driverinfo(){
+        return $this -> embedsOne('App\Driver_Info');
+    }
+
+
 
     public function getJWTIdentifier()
     {

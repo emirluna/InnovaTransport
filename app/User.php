@@ -12,7 +12,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
-
+use App\Address;
 class User extends Eloquent implements JWTSubject, AuthenticatableContract
 {
     use Notifiable;
@@ -41,6 +41,11 @@ class User extends Eloquent implements JWTSubject, AuthenticatableContract
 
     public function enterprise(){
         return $this->belongsTo('App\Enterprise',  'enterprise_id', '_id');
+    }
+
+
+    public function address(){
+        return $this -> embedsMany('App\Address');
     }
 
     public function getJWTIdentifier()

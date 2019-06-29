@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Enterprise;
 use Illuminate\Http\Request;
+use App\Address;
 class EnterpriseController extends Controller
 {
 
@@ -22,16 +23,10 @@ class EnterpriseController extends Controller
             $enter-> phone = $request->get('phone');
             $enter-> emial = $request->get('email');
             $enter-> status = $request->get('status');
-            $enter-> address = array(
-                'country' => $request->get('country'), 
-                'state' => $request->get('state'),
-                'city' => $request->get('city'),
-                'town' =>  $request->get('town'),
-                'street' =>  $request->get('street'),
-                'number' =>  $request->get('number'),
-                'zipcode' =>  $request->get('zipcode')
-            );
-            $enter-> vehicles = array(
+           
+    
+
+            /*$enter-> vehicles = array(
                 'vehicle' => array(
                     'vin' => '',
                     'brand' => ''
@@ -57,10 +52,18 @@ class EnterpriseController extends Controller
  	            'status_service' => 1,
  	            'status_payment' => 1
             );
-        
+        */
             $enter->save();
         
-       
+            $enter-> address() -> create([
+                'country' => $request->get('country'), 
+                'state' => $request->get('state'),
+                'city' => $request->get('city'),
+                'town' =>  $request->get('town'),
+                'street' =>  $request->get('street'),
+                'number' =>  $request->get('number'),
+                'zipcode' =>  $request->get('zipcode')
+            ]);   
        
        
        

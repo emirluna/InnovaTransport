@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Driver;
 use Illuminate\Support\Facades\Hash;
-
-
+use App\Address;
+use App\Driver_Info;
+use App\Bank_Info;
+use App\User;
 class DriversController extends Controller
 {
 
@@ -33,18 +35,21 @@ class DriversController extends Controller
 
      public function show(){
          
-        $chofer = Driver::all();
+        $chofer = User::where([['enterprise_id', '=', $request['id']], ['role', '=', 'Driver']])->take(10)->get();
         
-        return view('/drivers/index')->with('chofer' ,$chofer);
+        $count = User::where([['enterprise_id', '=', $request['id']], ['role', '=', 'Driver']])->count();
+
+        return view('/drivers/index')->with(['chofer' => $chofer, 'count' => $count]);
      }
     
      public function getDriver(Request $request){
 //$chofer = Driver::where([['enterprise_id', '=', $request['id']], ['role', '=', 'Driver']])->take(10)->get();
-        $chofer = Driver::where([['enterprise_id', '=', $request['id']], ['role', '=', 'Driver']])->take(10)->get();
-        
-        $count = Driver::where([['enterprise_id', '=', $request['id']], ['role', '=', 'Driver']])->count();
+   //     $chofer = User::where([['enterprise_id', '=', $request['id']], ['role', '=', 'Driver']])->take(10)->get();
+   $chofer = User::where([['enterprise_id', '=', $request['id']], ['role', '=', 'Driver']])->take(10)->get();
+                
+   $count = User::where([['enterprise_id', '=', $request['id']], ['role', '=', 'Driver']])->count();
 
-        return view('/drivers/index')->with(['chofer' => $chofer, 'count' => $count]);
+   return view('/drivers/index')->with(['chofer' => $chofer, 'count' => $count]);
      }
 
      public function create(){
@@ -54,7 +59,7 @@ class DriversController extends Controller
 
     public function store(Request $request){
      
-       Driver::create([
+       $driver = Driver::create([
             'name' => $request['name'],
             'last_name' => $request['last_name'],
             'email' => $request['email'],
@@ -64,31 +69,24 @@ class DriversController extends Controller
             'status' => 1,
             'photo' => 'img/porfile/',
             'role' =>  $request['rol'],
-            'address' => array([
-                'street'=> "",
-                'number'=> 0,
-                'town'=>"",
-                'city'=> "",
-                'state'=> "",
-                'country'=> "",
-                'zip_code'=> 0
-            ]),
-            'driver_info' => array([
-                'turn' => $request['turn'],
-                'license_number' => $request['license_number'],
-                'license_type' => $request['license_type'],
-                'expiration_date' => $request['expiration_date'],
-            ]),
-            'bank_info' => array([
-                'bank' => $request['bank'],
-                'number_account' => $request['number_account'],
-                'clabe' => $request['clabe'],
-                'currency' => $request['currency'],
-            ]),
             'resource' => $request['resource'],
             'enterprise_id' =>  $request['enterprise_id']
         ]);  
        
+        $driver->driverinfo() -> create([
+            'turn' => $request['turn'],
+            'license_number' => $request['license_number'],
+            'license_type' => $request['license_type'],
+            'expiration_date' => $request['expiration_date'],
+        ]);
+
+        $driver -> banks() -> create([
+            'bank' => $request['bank'],
+            'number_account' => $request['number_account'],
+            'clabe' => $request['clabe'],
+            'currency' => $request['currency'],
+        ]);
+
         $chofer = Driver::where([['enterprise_id', '=', $request['enterprise_id']], ['role', '=', 'Driver']])->take(10)->get();
         
         $count = Driver::where([['enterprise_id', '=', $request['enterprise_id']], ['role', '=', 'Driver']])->count();
