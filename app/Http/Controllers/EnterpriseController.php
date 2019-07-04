@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Enterprise;
 use Illuminate\Http\Request;
 use App\Address;
+use App\Suscription;
+use App\Purchase;
 class EnterpriseController extends Controller
 {
 
@@ -23,24 +25,18 @@ class EnterpriseController extends Controller
             $enter-> phone = $request->get('phone');
             $enter-> emial = $request->get('email');
             $enter-> status = $request->get('status');
-           
+            $enter->save();   
     
 
-            /*$enter-> vehicles = array(
-                'vehicle' => array(
-                    'vin' => '',
-                    'brand' => ''
-                )
-            );
-            $enter-> suscription = array(
+            $enter -> suscriptions() ->create([
                 'type_suscription' => 0,
                 'units_hired' => 10,
                 'units_active' => 10, 
                 'units_available' => 10,
                 'units_assigned' => 0,
                 'status' => 1
-            );
-            $enter-> purchases = array(
+            ]);
+            $enter-> purchases()->create([
                 'type_package' => 'free',
                 'number_units' => 10,
                 'unit_price' => 0,
@@ -51,9 +47,9 @@ class EnterpriseController extends Controller
  	            'expiration_date' => $date->format('d-m-Y H:i:s'),
  	            'status_service' => 1,
  	            'status_payment' => 1
-            );
-        */
-            $enter->save();
+            ]);
+        
+        
         
             $enter-> address() -> create([
                 'country' => $request->get('country'), 
@@ -68,7 +64,7 @@ class EnterpriseController extends Controller
        
        
        
-        return view('/home');
+        return redirect('/home');
     }
 
 

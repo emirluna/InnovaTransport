@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="col-sm-12">
-                    <input id="phone" type="text" class="form-control text-field" name="phone"  required autofocus placeholder="Teléfono">
+                    <input id="phone" type="number" class="form-control text-field" name="phone"  required autofocus placeholder="Teléfono">
                 </div>
 
                 <div class="col-sm-12">

@@ -26,8 +26,8 @@
 
         @if(Auth::user()->enterprise()->first()->status != 0)
         
-        
-            
+    
+            <!--Usuarios-->
                  <section class="content ">
                      <!-- Small boxes (Stat box) -->
                      <div class="row" style="margin-top: 100px; margin-left: 250px;">
@@ -44,21 +44,27 @@
                                     <hr>
                                     </div>
                                     <div class="col-sm-5">
-            
-                                     <h3>13</h3>
+                                    
+                                     <h3>
+                                     {{$user}}
+                                     </h3>
                                      <p>Usuarios</p>
                                     </div> 
+                                    
                                  </div>
                              <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                                <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+
+                                <a href='{{url('createUser',array('id'=>$id))}}' class="small-box-footer">Crear Usuario <i class="fa fa-arrow-circle-right"></i></a>
                             </div>
                             </div>
                         </div>
                             <!-- ./col -->
-                        <div class="col-lg-3 col-xs-6"  style="margin-left: 200px;">
+                        <div class="col-lg-3 col-xs-6"  style="margin-left: 50px;">
 
+                          
+                          <!--Clientes-->
                             <!-- small box -->
                                             <div class="small-box bg-aqua">
                                   <div class="inner">
@@ -71,17 +77,50 @@
                                     </div>
                                     <div class="col-sm-5">
             
-                                     <h3>20</h3>
+                                     <h3>{{$customer}}</h3>
                                      <p>Clientes</p>
                                     </div> 
                                  </div>
                              <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                                <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+                            <a href='{{url('createCustomer',array('id'=>$id))}}' class="small-box-footer">Crear cliente <i class="fa fa-arrow-circle-right"></i></a>
                             </div>
                             </div>
                         </div>
+
+                        <div class="col-lg-3 col-xs-6" style="margin-left: 50px;">
+                          <!--Choferes-->
+                          <!-- small box -->
+                             <div class="small-box bg-aqua">
+                                  <div class="inner">
+                                     <div class="row">
+                                       <div class="col-sm-6">
+                                          <img src="{{ asset('img/Driver.jpg')}}" class="img-fluid">
+                                       </div>
+                                   <div>
+                                    <hr>
+                                    </div>
+                                    <div class="col-sm-5">
+                                    
+                                     <h3>
+                                     {{$driver}}
+                                     </h3>
+                                     <p>Conductores</p>
+                                    </div> 
+                                    
+                                 </div>
+                             <div class="icon">
+                                <i class="ion ion-bag"></i>
+                            </div>
+
+                                <a href='{{url('createDriver',array('id'=>$id))}}' class="small-box-footer">Crear Conductor <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                            </div>
+                        </div>
+                            <!-- ./col -->
+                        <div class="col-lg-3 col-xs-6"  style="margin-left: 200px;">
+
                         </div>
 
 
@@ -90,7 +129,7 @@
 
 
 
-                        <div class="row" style="margin-top: 100px; margin-left: 250px;">
+                        <div class="row" style="margin-top: 100px; margin-left: 15px;">
                               <!-- ./col -->
                             <div class="col-lg-3 col-xs-6">
                                 <!-- small box -->
@@ -105,21 +144,47 @@
                                     </div>
                                     <div class="col-sm-5">
             
-                                     <h3>15</h3>
+                                     <h3>{{$vehicle}}</h3>
                                      <p>Unidades</p>
                                     </div> 
                                  </div>
                              <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                              <!--  <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+                                    <a href='{{url('createVehicle',array('id'=>$id))}}' class="small-box-footer">Crear Vehiculo <i class="fa fa-arrow-circle-right"></i></a>     
                             </div>
                             </div>
                         </div>
                                 <!-- ./col -->
-                            <div class="col-lg-3 col-xs-6" style="margin-left: 200px;">
+                            <div class="col-lg-3 col-xs-6" style="margin-left: 50px;">
                                 <!-- small box -->
                                 <div class="small-box bg-aqua">
+                                  <div class="inner">
+                                     <div class="row">
+                                       <div class="col-sm-6">
+                                          <img src="{{ asset('img/date.png')}}" class="img-fluid">
+                                       </div>
+                                   <div>
+                                    <hr>
+                                    </div>
+                                    <div class="col-sm-5">
+            
+                                     <h3>{{$order}}</h3>
+                                     <p>Pedidos</p>
+                                    </div> 
+                                 </div>
+                             <div class="icon">
+                                <i class="ion ion-bag"></i>
+                            </div>
+                            <a href='{{url('createOrder',array('id'=>$id))}}' class="small-box-footer">Crear Usuario <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                            </div>
+                        </div>
+                                <!-- ./col -->
+
+                                <div class="col-lg-3 col-xs-6" style="margin-left: 50px;">
+                          <!-- small box -->
+                             <div class="small-box bg-aqua">
                                   <div class="inner">
                                      <div class="row">
                                        <div class="col-sm-6">
@@ -129,20 +194,30 @@
                                     <hr>
                                     </div>
                                     <div class="col-sm-5">
-            
-                                     <h3>11</h3>
-                                     <p>Entregas</p>
+                                    
+                                     <h3>
+                                     {{$journey}}
+                                     </h3>
+                                     <p>Viajes</p>
                                     </div> 
+                                    
                                  </div>
                              <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                                <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+
+                                <a href='{{url('createJourney',array('id'=>$id))}}' class="small-box-footer">Crear Usuario <i class="fa fa-arrow-circle-right"></i></a>
                             </div>
                             </div>
                         </div>
-                                <!-- ./col -->
+                            <!-- ./col -->
+                        <div class="col-lg-3 col-xs-6"  style="margin-left: 200px;">
+
                         </div>
+
+
+
+
                     </div>
 
             
@@ -351,10 +426,10 @@
     @endif
 
 
-    @yield('footerD')
+
     </div>
     <!-- /#page-content-wrapper -->
-
+    @yield('footerD')
 </div>
 <!-- /#wrapper -->
 

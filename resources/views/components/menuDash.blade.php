@@ -7,7 +7,7 @@
 
     @if(Auth::user()->role=="admin")
                 
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/home' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/CasaB.png')}}" width="25px" height="25px" style="margin-right: 10px;"> Inicio
                 </a>
                 
@@ -28,39 +28,39 @@
                     <img src="{{ asset('img/IconosBlancos/TeamB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Clientes
                 </a>
                 <div class="collapse" id="collapseCustomers">
-                    <a href='{{url('clientes',array('id'=>Auth::user()->enterprise_id))}}' class="list-group-item list-group-item-action ">  Ver Clinetes</a>   
+                    <a href='{{url('clientes',array('id'=>Auth::user()->enterprise_id))}}' class="list-group-item list-group-item-action ">  Ver Clientes</a>   
                 </div>
 
-                <a href='/vehicle' class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/CamionB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Transportes
                 </a>
 
-                <a href='{{url('vehiculos',array('id'=>Auth::user()->enterprise_id))}}' class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/DateB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Salidas
                 </a>
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/DateB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Llegadas
                 </a>
 
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/GPSB.png')}}" width="25px" height="25px" style="margin-right: 10px;">GPS
                 </a>
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/GasolineB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Rendimiento
                 </a>
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/SettingsB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Mantenimiento
                 </a>
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/DolarB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Viaticos
                 </a>
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/BarraB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Casetas
                 </a>
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/PeriodicoB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Reportes
                 </a>
-                <a href="#" class="list-group-item list-group-item-action ">
+                <a href='/construccion' class="list-group-item list-group-item-action ">
                     <img src="{{ asset('img/IconosBlancos/DocumentB.png')}}" width="25px" height="25px" style="margin-right: 10px;">Facturación
                 </a>
 

@@ -24,6 +24,10 @@ Route::get('features', function (){
     return view('prices');
  });
  
+ Route::get('construccion', function (){
+    return view('settings/general');
+ });
+ 
 Route::resource('/enterprise', 'EnterpriseController');
 
 Route::resource('/driver', 'DriversController');
@@ -43,3 +47,15 @@ Route::get('/vehiculos/{id}', 'VehicleController@newVehicle');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/createVehicle/{id}', 'testController@newVehicle');
+
+Route::get('/createUser/{id}', 'testController@newUser');
+
+Route::get('/createCustomer/{id}', 'testController@newCustomer');
+
+Route::get('/createDriver/{id}', 'testController@newDriver');
+
+Route::get('/createOrder/{id}', 'testController@newOrder');
+
+Route::get('/createJourney/{id}', 'testController@newJourney');

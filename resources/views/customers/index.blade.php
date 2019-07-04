@@ -63,10 +63,11 @@
                 <a href="#"><img src="{{ asset('img/delete.png')}}" height="20px" width="20px"></a>
             </td>       
 
-            {{ Form::open(array('url' => 'customer/' . $c->_id, 'class' => 'pull-right')) }}
+         <!--   {{ Form::open(array('url' => 'customer/' . $c->_id, 'class' => 'pull-right')) }}
             {{ Form::hidden('_method', 'DELETE') }}
             <td>{{ Form::submit('Eliminar', array('class' => 'btn btn-warning')) }}</td>
             {{ Form::close() }}
+            -->
             </tr>
         </tr>
 
