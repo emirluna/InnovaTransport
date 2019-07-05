@@ -176,7 +176,7 @@
                              <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href='{{url('createOrder',array('id'=>$id))}}' class="small-box-footer">Crear Usuario <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href='{{url('createOrder',array('id'=>$id))}}' class="small-box-footer">Crear Orden<i class="fa fa-arrow-circle-right"></i></a>
                             </div>
                             </div>
                         </div>

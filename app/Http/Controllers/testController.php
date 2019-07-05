@@ -183,6 +183,32 @@ class testController extends Controller
             'status'=> 1
         ]);
 
+        $order-> loading_address()->create([
+            'street'=> "25",
+            'number'=> 0,
+            'town'=>"Atoyatenco",
+            'city'=> "Nativitas",
+            'state'=> "Tlaxacala",
+            'country'=> "México",
+            'zip_code'=> 90718
+
+        ]);
+
+
+
+        $order -> unloading_address()->create([
+            'street'=> "25",
+            'number'=> 0,
+            'town'=>"Atoyatenco",
+            'city'=> "Nativitas",
+            'state'=> "Tlaxacala",
+            'country'=> "México",
+            'zip_code'=> 90718
+
+            ]);
+
+
+
     return back();
 
     }
@@ -199,7 +225,7 @@ class testController extends Controller
             'satus'=>1            
         ]);
 
-        $journey-> orders()->create([ 
+        $order = $journey-> orders()->create([ 
             'type_order' => 'Granel',
             'weight' => 3500,
             'volume' => 150,
@@ -212,6 +238,29 @@ class testController extends Controller
             'status'=> 1
         ]);
 
+        $order-> loading_address()->create([
+            'street'=> "25",
+            'number'=> 0,
+            'town'=>"Atoyatenco",
+            'city'=> "Nativitas",
+            'state'=> "Tlaxacala",
+            'country'=> "México",
+            'zip_code'=> 90718
+
+        ]);
+
+
+
+        $order -> unloading_address()->create([
+            'street'=> "25",
+            'number'=> 0,
+            'town'=>"Atoyatenco",
+            'city'=> "Nativitas",
+            'state'=> "Tlaxacala",
+            'country'=> "México",
+            'zip_code'=> 90718
+
+            ]);
 
 
         $ruta = $journey -> routes()->create([
